@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { Button ,message} from 'antd';
+import { Button } from 'antd';
+
+// import request from './helpers/request'
 
 import './App.css';
 
@@ -16,7 +18,10 @@ class App extends Component {
   }
 
   handleClick(){
-    message.error('error')
+    // request('/auth/login', 'POST', {username: 'hunger', password: '123456'}).then((data)=>{
+    //   console.log(data)
+    // })
+
   }
 }
 
