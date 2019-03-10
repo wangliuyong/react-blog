@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
+import { Switch, Route} from 'react-router-dom'
 
-import { Button } from 'antd';
+import Header from './component/Header/Header'
+import Footer from './component/Footer/Footer'
+import Index from './pages/Index/Index'
+import My from './pages/My/My'
 
-// import request from './helpers/request'
 
-import './App.css';
+
+
+
+
+import './App.less';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Button type="primary" onClick={this.handleClick}>Button</Button>
-        </header>
+        <Header isLogin={true}/>
+        <div className="main">
+          <Switch>
+            <Route exact path='/' component={Index}/>
+            {/* both /roster and /roster/:number begin with /roster */}
+            <Route path='/my' component={My}/>
+          </Switch>
+        </div>
+        <Footer/>
       </div>
     );
   }
 
-  handleClick(){
-    // request('/auth/login', 'POST', {username: 'hunger', password: '123456'}).then((data)=>{
-    //   console.log(data)
-    // })
 
-  }
 }
 
 export default App;

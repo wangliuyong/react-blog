@@ -1,0 +1,51 @@
+.App-header {
+  grid-area: header;
+  padding-left: 12%;
+  padding-right: 12%;
+  background: #ccc;
+
+
+  .logOut{
+    h1,p {
+      text-align: center;
+    }
+
+
+    .button {
+      display: flex;
+      justify-content: center;
+
+      & > button{
+        margin:10px;
+      }
+    }
+  }
+
+  .login{
+    display: grid;
+    grid-template-columns: 80% 1fr;
+    align-items: center;
+    vertical-align: middle;
+    .log{
+      grid-row: 1;
+      grid-column: 1;
+      font-size:30px;
+      color: rgba(150,150,150,0.6);
+    }
+    .my{
+
+      grid-row: 1 ;
+      grid-column: 2;
+
+      img{
+        width:40px;
+        height: 40px;
+        margin-left:15px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+      }
+
+    }
+  }
+}

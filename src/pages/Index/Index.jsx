@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class My extends Component{
+export default class Index extends Component{
   constructor(props){
     super(props);
     this.state={
@@ -9,6 +9,6 @@ export class My extends Component{
   }
 
   render(){
-    return (<div>我的</div>)
+    return (<div>首页</div>)
   }
 }
