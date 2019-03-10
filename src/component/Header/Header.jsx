@@ -12,7 +12,8 @@ export default class Header extends Component{
   constructor(props){
     super(props)
     this.state={
-      user:{}
+      user:{},
+      isLogin:false
     }
   }
   componentDidMount(){
@@ -21,7 +22,7 @@ export default class Header extends Component{
   }
 
   render(){
-    const isLogin=this.props.isLogin
+    const isLogin=this.state.isLogin
     return (
       <header className="App-header">
         {
@@ -52,11 +53,18 @@ export default class Header extends Component{
 
   getUser(){
     let that=this
-    request('/auth/login', 'POST', {username: 'hunger', password: '123456'}).then((res)=>{
+    request('/auth/login', 'POST', {username: 'hunger2656', password: '123456'}).then((res)=>{
       console.log(res)
-      that.setState({
-        user:res.data
-      })
+      if(res.status==='ok'){
+        that.setState({
+          user:res.data,
+          isLogin:true
+        })
+      }else{
+        that.setState({
+          isLogin:false
+        })
+      }
     })
   }
 
