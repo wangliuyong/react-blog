@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
+import { Switch, Route} from 'react-router-dom'
 
-import { Button ,message} from 'antd';
+import Header from './component/Header/Header'
+import Footer from './component/Footer/Footer'
+import Index from './pages/Index/Index'
+import My from './pages/My/My'
 
-import './App.css';
+
+
+
+
+
+import './App.less';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Button type="primary" onClick={this.handleClick}>Button</Button>
-        </header>
+        <Header isLogin={true}/>
+        <div className="main">
+          <Switch>
+            <Route exact path='/' component={Index}/>
+            {/* both /roster and /roster/:number begin with /roster */}
+            <Route path='/my' component={My}/>
+          </Switch>
+        </div>
+        <Footer/>
       </div>
     );
   }
 
-  handleClick(){
-    message.error('error')
-  }
+
 }
 
 export default App;
