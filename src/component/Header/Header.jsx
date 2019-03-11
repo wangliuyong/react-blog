@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
 import { Button } from 'antd';
+import auth from '../../api/auth';
+import './header.less';
 
-import request from '../../helpers/request'
+let {getInfo}=auth;
 
 
-import './header.less'
 
 
 export default class Header extends Component{
@@ -17,8 +17,25 @@ export default class Header extends Component{
     }
   }
   componentDidMount(){
-    console.log('header mount')
     this.getUser()
+  }
+
+  getUser(){
+    getInfo().then((res)=>{
+      console.log(res)
+      if(res.status==='ok'){
+        this.setState({
+          user:res.data,
+          isLogin:true
+        })
+      }else{
+        this.setState({isLogin:false})
+      }
+    })
+  }
+
+  handleClick(){
+
   }
 
   render(){
@@ -51,28 +68,5 @@ export default class Header extends Component{
     )
   }
 
-  getUser(){
-    let that=this
-    request('/auth/login', 'POST', {username: 'hunger2656', password: '123456'}).then((res)=>{
-      console.log(res)
-      if(res.status==='ok'){
-        that.setState({
-          user:res.data,
-          isLogin:true
-        })
-      }else{
-        that.setState({
-          isLogin:false
-        })
-      }
-    })
-  }
 
-  handleClick(){
-    request('/auth/login', 'POST', {username: 'hunger', password: '123456'}).then((data)=>{
-      console.log(data)
-
-    })
-
-  }
 }

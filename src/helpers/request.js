@@ -21,7 +21,6 @@ export default function request(url, type = 'GET', data = {}) {
 
       if(res.data.status === 'ok') {
         resolve(res.data)
-        message.success('登录成功')
       }else{
         message.error(res.data.msg)
         reject(res.data)
