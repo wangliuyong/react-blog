@@ -18,7 +18,7 @@ class Register extends Component{
     this.submitClick=this.submitClick.bind(this)
   }
   componentDidMount() {
-    // register();
+
   }
 
   submitClick(e){

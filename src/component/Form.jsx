@@ -6,15 +6,11 @@ import {
 
 class NormalLoginForm extends Component {
 
-    componentDidMount() {
-        // register();
-    }
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
                 this.props.submitClick(values);
             }
         });
@@ -24,6 +20,7 @@ class NormalLoginForm extends Component {
 
     render() {
         const {getFieldDecorator} = this.props.form;
+
         const loginTemalete = <div>
             {getFieldDecorator('remember', {
                 valuePropName: 'checked',
@@ -41,7 +38,7 @@ class NormalLoginForm extends Component {
         const registerTemalate =
             <div>
                 <Button type="primary" htmlType="submit" className="login-form-button">
-                    register
+                    submit
                 </Button>
             </div>
         return (
