@@ -5,6 +5,8 @@ import Header from './component/Header/Header'
 import Footer from './component/Footer/Footer'
 import Index from './pages/Index/Index'
 import My from './pages/My/My'
+import Rgister from './pages/Rgister/Rgister'
+import Login from './pages/Login/Login'
 
 import './App.less';
 
@@ -18,6 +20,8 @@ class App extends Component {
             <Route exact path='/' component={Index}/>
             {/* both /roster and /roster/:number begin with /roster */}
             <Route path='/my' component={My}/>
+            <Route path='/register' component={Rgister}/>
+            <Route path='/login' component={Login}/>
           </Switch>
         </div>
         <Footer/>

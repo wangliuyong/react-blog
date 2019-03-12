@@ -3,9 +3,7 @@ import { Button } from 'antd';
 import auth from '../../api/auth';
 import './header.less';
 
-let {getInfo}=auth;
-
-
+let {getInfo,logout}=auth;
 
 
 export default class Header extends Component{
@@ -35,7 +33,7 @@ export default class Header extends Component{
   }
 
   handleClick(){
-
+      logout();
   }
 
   render(){
