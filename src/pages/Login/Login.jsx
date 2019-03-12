@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import NormalForm from '../../component/Form'
+
 import blog from '../../api/blog'
 
 import auth from '../../api/auth'
@@ -13,12 +16,19 @@ export default class Login extends Component{
     this.state={
       blog:[]
     }
+
+    this.submitClick=this.submitClick.bind(this)
   }
 
   componentDidMount() {
 
     this.getBlogList()
   }
+
+  submitClick(e){
+    console.log(e);
+  }
+
 
   getBlogList(){
     getBlogs().then((res)=>{
@@ -31,7 +41,9 @@ export default class Login extends Component{
 
   render(){
     return (
-        <div></div>
+        <div>
+          <NormalForm title={'LOGIN'} submitClick={this.submitClick} isLogin={true}/>
+        </div>
     )
   }
 }

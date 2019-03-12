@@ -24,7 +24,7 @@ export default class Header extends Component{
       if(res.status==='ok'){
         this.setState({
           user:res.data,
-          isLogin:true
+          isLogin:res.isLogin
         })
       }else{
         this.setState({isLogin:false})
