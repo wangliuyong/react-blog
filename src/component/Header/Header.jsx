@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 import { Button } from 'antd';
 import auth from '../../api/auth';
 import './header.less';
@@ -56,8 +57,8 @@ export default class Header extends Component{
               <h1>ARISS BLOG</h1>
               <p>精品博客汇聚在这里，等待着你的开启</p>
               <div className="button">
-                <Button type="primary" onClick={this.handleClick}>登录</Button>
-                <Button type="primary" onClick={this.handleClick}>注册</Button>
+                <Link to='/login'><Button type="primary" >登录</Button></Link>
+                <Link to='/register'><Button type="primary">注册</Button></Link>
               </div>
             </div>)
         }
